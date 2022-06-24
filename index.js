@@ -1,10 +1,11 @@
 // index.js
 const express = require("express");
 const app = express();
+const PORT = process.env.PORT || 8000
 const { kabupaten } = require('./models');
 
 app.use(express.json());
-app.get('/', (req, res) => "List Kota di Indonesia")
+app.get('/', () => "List Kota di Indonesia")
 app.get('/kabupaten/list', async (req, res) => {
     try {
         const city = await kabupaten.findAll({
@@ -22,4 +23,4 @@ app.get('/kabupaten/list', async (req, res) => {
 })
 
 // listen on port
-app.listen(8000, () => console.log("Server running at http://localhost:5000"));
+app.listen(PORT, () => console.log("Server running at", PORT));
