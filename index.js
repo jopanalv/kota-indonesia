@@ -1,11 +1,12 @@
 // index.js
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 8000
+const PORT = 8000
 const { kabupaten } = require('./models');
 
 app.use(express.json());
-app.get('/', () => "List Kota di Indonesia")
+
+app.get('/', (req, res) => res.json({message: 'List Kota di Indonesia'}))
 app.get('/kabupaten/list', async (req, res) => {
     try {
         const city = await kabupaten.findAll({
