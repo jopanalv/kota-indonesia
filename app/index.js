@@ -4,6 +4,7 @@ const app = express();
 const { kabupaten } = require('./models');
 
 app.use(express.json());
+app.get('/', (req, res) => "List Kota di Indonesia")
 app.get('/kabupaten/list', async (req, res) => {
     try {
         const city = await kabupaten.findAll({
