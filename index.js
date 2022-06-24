@@ -1,7 +1,7 @@
 // index.js
 const express = require("express");
 const app = express();
-const PORT = 8000
+const PORT = process.env.PORT || 8000
 const { kabupaten } = require('./models');
 
 app.use(express.json());
